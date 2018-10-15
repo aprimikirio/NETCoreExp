@@ -19,12 +19,23 @@ namespace RTNetCore
         public void ConfigureServices(IServiceCollection services)
         {
         }
-
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.Run(async (context) =>
+            if (env.IsDevelopment())
             {
-                await context.Response.WriteAsync(_env.ApplicationName);
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
