@@ -21,9 +21,11 @@ namespace RTNetCore
         }
         public void Configure(IApplicationBuilder app)
         {
+            int x = 0;
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("<!DOCTYPE html><html><head><title>Test</title></html>");
+                x++;
+                await context.Response.WriteAsync($"request counter: {x}");
             });
         }
     }
