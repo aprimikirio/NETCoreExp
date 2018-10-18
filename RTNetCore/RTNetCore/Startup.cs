@@ -23,7 +23,7 @@ namespace RTNetCore
         {
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync(_env.ApplicationName);
+                await context.Response.WriteAsync("<!DOCTYPE html><html><head><title>Test</title></html>");
             });
         }
     }
