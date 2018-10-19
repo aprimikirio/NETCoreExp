@@ -21,8 +21,16 @@ namespace RTNetCore
         }
         public void Configure(IApplicationBuilder app)
         {
-            app.Map("/index", Index);
-            app.Map("/about", About);
+            app.Map("/home", home =>
+            {
+                home.Map("/index", Index);
+                home.Map("/about", About);
+
+                app.Run(async (context) =>
+                {
+                    await context.Response.WriteAsync("Home");
+                });
+            });
 
             app.Run(async (context) =>
             {
