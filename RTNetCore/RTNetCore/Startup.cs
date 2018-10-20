@@ -11,46 +11,14 @@ namespace RTNetCore
 {
     public class Startup
     {
-        IHostingEnvironment _env;
-        public Startup(IHostingEnvironment env)
-        {
-            _env = env;
-        }
         public void ConfigureServices(IServiceCollection services)
-        {
-        }
+        { }
+
         public void Configure(IApplicationBuilder app)
         {
-            app.Map("/home", home =>
-            {
-                home.Map("/index", Index);
-                home.Map("/about", About);
-
-                app.Run(async (context) =>
-                {
-                    await context.Response.WriteAsync("Home");
-                });
-            });
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Page Not Found");
-            });
-        }
-
-        private static void Index(IApplicationBuilder app)
-        {
-            app.Run(async context =>
-            {
-                await context.Response.WriteAsync("Index");
-            });
-        }
-        private static void About(IApplicationBuilder app)
-        {
-            app.Run(async context =>
-            {
-                await context.Response.WriteAsync("About");
-            });
+            app.UseMiddleware<ErrorHandlingMiddleware>();
+            app.UseMiddleware<AuthenticationMiddleware>();
+            app.UseMiddleware<RoutingMiddleware>();
         }
     }
 }
