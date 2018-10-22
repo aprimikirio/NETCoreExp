@@ -16,6 +16,7 @@ namespace RTNetCore
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.Run(async (context) =>
