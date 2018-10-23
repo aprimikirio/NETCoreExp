@@ -1,0 +1,28 @@
+Failed to locate the development https certificate at '(null)'.
+Hosting started
+Loaded hosting startup assembly RTNetCore
+Connection id "0HLHP4U9JHTC7" started.
+Connection id "0HLHP4U9JHTC6" started.
+Connection id "0HLHP4U9JHTC6" received FIN.
+Connection id "0HLHP4U9JHTC7" received FIN.
+Connection id "0HLHP4U9JHTC6" disconnecting.
+Connection id "0HLHP4U9JHTC7" disconnecting.
+Connection id "0HLHP4U9JHTC7" sending FIN.
+Connection id "0HLHP4U9JHTC6" sending FIN.
+Connection id "0HLHP4U9JHTC7" stopped.
+Connection id "0HLHP4U9JHTC6" stopped.
+Connection id "0HLHP4U9JHTC8" started.
+Connection id "0HLHP4U9JHTC9" started.
+Request starting HTTP/1.1 GET http://localhost:52892/  
+Wildcard detected, all requests with hosts will be allowed.
+All hosts are allowed.
+The request path / does not match a supported file type
+Processing request /index.html
+Connection id "0HLHP4U9JHTC8" completed keep alive response.
+Request finished in 89.5723ms 200 
+Request starting HTTP/1.1 GET http://localhost:52892/favicon.ico  
+All hosts are allowed.
+The request path /favicon.ico does not match an existing file
+Processing request /favicon.ico
+Connection id "0HLHP4U9JHTC8" completed keep alive response.
+Request finished in 51.9995ms 200 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,14 +18,14 @@ namespace RTNetCore
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
+            loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
+            var logger = loggerFactory.CreateLogger("FileLogger");
 
             app.UseStaticFiles();
             app.UseDefaultFiles();
 
             app.Run(async (context) =>
             {
-                var logger = loggerFactory.CreateLogger("RequestInfoLogger");
                 logger.LogInformation("Processing request {0}", context.Request.Path);
                 await context.Response.WriteAsync("Hello World");
             });
