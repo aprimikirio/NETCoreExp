@@ -1,15 +1,42 @@
-#shapka {
+#hat {
     width: auto;
     height: 100px;
-    background-color: #e5b3e2;
+    line-height: 100px;
+    text-align: center;
+    background-color: #ff1744;
+    color: white;
+    font-size: 24pt;
+}
+#main {
+    margin: auto;
+    min-width: 800px;
+    max-width: 1000px;
+    height: auto;
 }
 #menu {
-    margin-left: 150px;
-    margin-right:150px;
-    width: 900px;
-    height: 38px;
     font-size: 13px;
     text-align: center;
-    display: block;
-    border: 1px solid #ccc;
+    background-color: #212120;
+}
+#content {
+    min-height: 640px;
+    font-size: 13px;
+    text-align: center;
+    background-color: white;
+}
+
+body {
+    background-color: #ff80ab;
+}
+
+a:link, a:visited {
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: #41403f;
 }
