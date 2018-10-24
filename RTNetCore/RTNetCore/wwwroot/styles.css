@@ -1,0 +1,15 @@
+#shapka {
+    width: auto;
+    height: 100px;
+    background-color: #e5b3e2;
+}
+#menu {
+    margin-left: 150px;
+    margin-right:150px;
+    width: 900px;
+    height: 38px;
+    font-size: 13px;
+    text-align: center;
+    display: block;
+    border: 1px solid #ccc;
+}

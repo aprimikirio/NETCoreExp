@@ -26,3 +26,134 @@ The request path /favicon.ico does not match an existing file
 Processing request /favicon.ico
 Connection id "0HLHP4U9JHTC8" completed keep alive response.
 Request finished in 51.9995ms 200 
+Failed to locate the development https certificate at '(null)'.
+Hosting started
+Loaded hosting startup assembly RTNetCore
+Loaded hosting startup assembly Microsoft.AspNetCore.Server.IISIntegration
+Connection id "0HLHPIQTNU4AR" started.
+Connection id "0HLHPIQTNU4AR" reset.
+Connection id "0HLHPIQTNU4AR" disconnecting.
+Connection id "0HLHPIQTNU4AR" sending FIN.
+Connection id "0HLHPIQTNU4AS" started.
+Connection id "0HLHPIQTNU4AR" stopped.
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Wildcard detected, all requests with hosts will be allowed.
+All hosts are allowed.
+The request path / does not match a supported file type
+Processing request /index.html
+Connection id "0HLHPIQTNU4AS" completed keep alive response.
+Request finished in 423.8771ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/index.html  
+All hosts are allowed.
+Range header's value is empty.
+Sending file. Request path: '/index.html'. Physical path: 'D:\Documents\RT Games\NETCoreExp\RTNetCore\RTNetCore\wwwroot\index.html'
+Connection id "0HLHPIQTNU4AS" completed keep alive response.
+Request finished in 96.8418ms 200 text/html
+Failed to locate the development https certificate at '(null)'.
+Hosting started
+Loaded hosting startup assembly RTNetCore
+Loaded hosting startup assembly Microsoft.AspNetCore.Server.IISIntegration
+Connection id "0HLHPIV89O29A" started.
+Connection id "0HLHPIV89O29A" reset.
+Connection id "0HLHPIV89O29A" disconnecting.
+Connection id "0HLHPIV89O29A" sending FIN.
+Connection id "0HLHPIV89O29B" started.
+Connection id "0HLHPIV89O29A" stopped.
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Wildcard detected, all requests with hosts will be allowed.
+All hosts are allowed.
+The request path / does not match a supported file type
+Processing request /index.html
+Connection id "0HLHPIV89O29B" completed keep alive response.
+Request finished in 238.0819ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/  
+All hosts are allowed.
+The request path / does not match a supported file type
+Processing request /index.html
+Connection id "0HLHPIV89O29B" completed keep alive response.
+Request finished in 28.6716ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/favicon.ico  
+All hosts are allowed.
+The request path /favicon.ico does not match an existing file
+Processing request /favicon.ico
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 161.0607ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/index.html  
+The file /index.html was not modified
+Request finished in 39.2426ms 304 text/html
+Request starting HTTP/1.1 GET http://localhost:65336/index.html  
+Sending file. Request path: '/index.html'. Physical path: 'D:\Documents\RT Games\NETCoreExp\RTNetCore\RTNetCore\wwwroot\index.html'
+Request finished in 99.9928ms 200 text/html
+Request starting HTTP/1.1 GET http://localhost:65336/Bldng.png  
+Processing request /Bldng.png
+Request finished in 14.6804ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/Bldng.png  
+Processing request /Bldng.png
+Request finished in 15.3169ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 115.1731ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/index.html  
+Sending file. Request path: '/index.html'. Physical path: 'D:\Documents\RT Games\NETCoreExp\RTNetCore\RTNetCore\wwwroot\index.html'
+Request finished in 44.4112ms 200 text/html
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 14.6872ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 126.6334ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 13.4893ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/index.html  
+Sending file. Request path: '/index.html'. Physical path: 'D:\Documents\RT Games\NETCoreExp\RTNetCore\RTNetCore\wwwroot\index.html'
+Request finished in 72.6277ms 200 text/html
+Request starting HTTP/1.1 GET http://localhost:65336/youtube.com  
+Processing request /youtube.com
+Request finished in 21.6442ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 116.6407ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/C:/Program Files/Mozilla Firefox/firefox.exe  
+Processing request /C:/Program%20Files/Mozilla%20Firefox/firefox.exe
+Request finished in 86.1617ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 145.2132ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/favicon.ico  
+Processing request /favicon.ico
+Request finished in 15.337ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/index.html  
+The file /index.html was not modified
+Request finished in 32.0335ms 304 text/html
+Request starting HTTP/1.1 GET http://localhost:65336/Bldng.png  
+Processing request /Bldng.png
+Request finished in 7.0842ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 147.3394ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/favicon.ico  
+Processing request /favicon.ico
+Request finished in 38.8298ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/index.html  
+The file /index.html was not modified
+Request finished in 21.4344ms 304 text/html
+Request starting HTTP/1.1 GET http://localhost:65336/Bldng.png  
+Processing request /Bldng.png
+Request finished in 7.1561ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/index.html  
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 105.3526ms 200 
+Sending file. Request path: '/index.html'. Physical path: 'D:\Documents\RT Games\NETCoreExp\RTNetCore\RTNetCore\wwwroot\index.html'
+Request finished in 128.0991ms 200 text/html
+Request starting HTTP/1.1 GET http://localhost:65336/  
+Processing request /index.html
+Request finished in 88.9734ms 200 
+Request starting HTTP/1.1 GET http://localhost:65336/index.html  
+Sending file. Request path: '/index.html'. Physical path: 'D:\Documents\RT Games\NETCoreExp\RTNetCore\RTNetCore\wwwroot\index.html'
+Request finished in 50.2403ms 200 text/html
+Request starting HTTP/1.1 GET http://localhost:65336/mushroom.ico  
+Sending file. Request path: '/mushroom.ico'. Physical path: 'D:\Documents\RT Games\NETCoreExp\RTNetCore\RTNetCore\wwwroot\mushroom.ico'
+Request finished in 13.6833ms 200 image/x-icon

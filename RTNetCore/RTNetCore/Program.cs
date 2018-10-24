@@ -19,7 +19,6 @@ namespace RTNetCore
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .ConfigureLogging(logging => logging.SetMinimumLevel(LogLevel.Trace))
             .Build();
     }
 }
