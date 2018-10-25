@@ -11,7 +11,6 @@
     margin: auto;
     min-width: 800px;
     max-width: 1000px;
-    height: auto;
 }
 #menu {
     font-size: 13px;
@@ -20,13 +19,24 @@
 }
 #content {
     min-height: 640px;
-    font-size: 13px;
+    font-size: 18px;
     text-align: center;
     background-color: white;
 }
 
 body {
     background-color: #ff80ab;
+}
+
+h1 {
+    margin: 0;
+}
+
+img {
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin: 15px;
 }
 
 a:link, a:visited {
