@@ -1,13 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace RTNetCore
 {
@@ -16,14 +11,21 @@ namespace RTNetCore
         public void ConfigureServices(IServiceCollection services)
         { }
 
-        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app)
         {
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+
+            app.Use(async (context, next) =>
+            {
+                context.Items["text"] = "Vsem zdarova, pacani!!!";
+                await next.Invoke();
+            });
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World");
+                context.Response.ContentType = "text/html; charset=utf-8";
+                await context.Response.WriteAsync($"Текст: {context.Items["text"]}");
             });
         }
     }
