@@ -17,17 +17,18 @@ namespace RTNetCore
 
         public void Configure(IApplicationBuilder app)
         {
-            //app.UseDefaultFiles();
-            //app.UseStaticFiles();
             app.UseSession();
-
             app.Run(async (context) =>
             {
-                if (context.Session.Keys.Contains("name"))
-                    await context.Response.WriteAsync($"Hello {context.Session.GetString("name")}!");
+                if (context.Session.Keys.Contains("person"))
+                {
+                    Person person = context.Session.Get<Person>("person");
+                    await context.Response.WriteAsync($"Hello {person.Name}!");
+                }
                 else
                 {
-                    context.Session.SetString("name", "Tom");
+                    Person person = new Person { Name = "Tom", Age = 22 };
+                    context.Session.Set<Person>("person", person);
                     await context.Response.WriteAsync("Hello World!");
                 }
             });
