@@ -24,6 +24,10 @@ namespace RTNetCore
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
             app.Run(async (context) =>
