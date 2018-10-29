@@ -11,26 +11,24 @@ namespace RTNetCore
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDistributedMemoryCache();
-            services.AddSession();
+            services.AddHttpsRedirection(options =>
+            {
+                options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
+                options.HttpsPort = 44369;
+            });
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseSession();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseHttpsRedirection();
             app.Run(async (context) =>
             {
-                if (context.Session.Keys.Contains("person"))
-                {
-                    Person person = context.Session.Get<Person>("person");
-                    await context.Response.WriteAsync($"Hello {person.Name}!");
-                }
-                else
-                {
-                    Person person = new Person { Name = "Tom", Age = 22 };
-                    context.Session.Set<Person>("person", person);
-                    await context.Response.WriteAsync("Hello World!");
-                }
+                await context.Response.WriteAsync("Hello World!");
             });
         }
     }
