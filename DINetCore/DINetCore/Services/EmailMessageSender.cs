@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 namespace DINetCore.Services
 {
     public class EmailMessageSender : IMessageSender
-    {
+    { 
         public string Send()
         {
-            return "Sent by Email";
+            return "Sent by Email ";
         }
     }
 }

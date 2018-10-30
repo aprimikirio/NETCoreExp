@@ -9,22 +9,17 @@ namespace DINetCore
 {
     public class Startup
     {
-        private IServiceCollection _services;
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IMessageSender, SmsMessageSender>();
+            services.AddTransient<TimeService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IMessageSender messageSender)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, TimeService timeService)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync(messageSender.Send());
+                context.Response.ContentType = "text/html; charset=utf-8";
+                await context.Response.WriteAsync($"Текущее время: {timeService?.GetTime()}");
             });
         }
     }
