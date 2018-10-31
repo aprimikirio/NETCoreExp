@@ -11,15 +11,15 @@ namespace DINetCore
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<TimeService>();
+            services.AddTransient<IMessageSender, EmailMessageSender>();
         }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, TimeService timeService)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(async (context) =>
             {
-                context.Response.ContentType = "text/html; charset=utf-8";
-                await context.Response.WriteAsync($"Текущее время: {timeService?.GetTime()}");
+                IMessageSender messageSender = context.RequestServices.GetService<IMessageSender>();
+                context.Response.ContentType = "text/html;charset=utf-8";
+                await context.Response.WriteAsync(messageSender.Send());
             });
         }
     }
