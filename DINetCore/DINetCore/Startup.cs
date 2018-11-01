@@ -15,12 +15,7 @@ namespace DINetCore
         }
         public void Configure(IApplicationBuilder app)
         {
-            app.Run(async (context) =>
-            {
-                IMessageSender messageSender = context.RequestServices.GetService<IMessageSender>();
-                context.Response.ContentType = "text/html;charset=utf-8";
-                await context.Response.WriteAsync(messageSender.Send());
-            });
+            app.UseMiddleware<MessageMiddleware>();
         }
     }
 }
