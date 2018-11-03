@@ -5,12 +5,9 @@ using System.Threading.Tasks;
 
 namespace MVCGame.Models
 {
-    public class Class
+    public class Game
     {
-        public int Id;
-        public int RoomId;
-        public int Edge;
-        public int X;
-        public int Y;
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
