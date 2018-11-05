@@ -3,6 +3,19 @@
     ViewData["Title"] = "GAME";
 }
 
-<div id="content">
-    <h1>GAME</h1>
-</div>
+<h3>Game rooms</h3>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>NAME</td>
+        <td></td>
+    </tr>
+    @foreach (var game in Model)
+    {
+        <tr>
+            <td>@game.Id</td>
+            <td>@game.Name</td>
+            <td><a href="#">JOIN</a></td>
+        </tr>
+    }
+</table>

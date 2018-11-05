@@ -47,10 +47,6 @@ namespace MVCGame
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute("game", async context =>
-                {
-                    await context.Response.WriteAsync("GAME");
-                });
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
