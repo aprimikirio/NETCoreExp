@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MVCGame.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Routing;
 namespace MVCGame
 {
     public class Startup
@@ -47,6 +47,10 @@ namespace MVCGame
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute("game", async context =>
+                {
+                    await context.Response.WriteAsync("GAME");
+                });
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

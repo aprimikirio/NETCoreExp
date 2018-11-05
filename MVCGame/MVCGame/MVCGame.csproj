@@ -12,4 +12,10 @@
     <PackageReference Include="Microsoft.Net.Compilers" Version="2.9.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Game.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>
