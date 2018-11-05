@@ -17,6 +17,10 @@ namespace MVCGame.Controllers
         }
         public IActionResult Index()
         {
+            return View();
+        }
+        public IActionResult Game()
+        {
             return View(db.Games.ToList());
         }
     }
