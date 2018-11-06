@@ -22,6 +22,7 @@ namespace MVCGame.Controllers
         public IActionResult Play(int RoomID)
         {
             ViewData["RoomID"] = RoomID;
+            ViewBag.Squares = db.Squares.Where(c => c.GameId == RoomID);
             return View("Play");
         }
     }

@@ -3,5 +3,21 @@
     ViewData["Title"] = "GAME ROOMS";
 }
 
-<h3>WELCOME TO @ViewData["RoomID"]</h3>
-<table></table>
+<h3>WELCOME TO @ViewData["RoomID"] ROOM</h3>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>EDGE</td>
+        <td>X</td>
+        <td>Y</td>
+    </tr>
+    @foreach (Square sq in ViewBag.Squares)
+    {
+        <tr>
+            <td>@sq.Id.ToString()</td>
+            <td>@sq.Edge</td>
+            <td>@sq.X</td>
+            <td>@sq.Y</td>
+        </tr>
+    }
+</table>
