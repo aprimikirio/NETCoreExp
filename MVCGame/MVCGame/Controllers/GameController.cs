@@ -19,9 +19,10 @@ namespace MVCGame.Controllers
         {
             return View(db.Games.ToList());
         }
-        public String Play(int RoomID)
+        public IActionResult Play(int RoomID)
         {
-            return RoomID.ToString();
+            ViewData["RoomID"] = RoomID;
+            return View("Play");
         }
     }
 }
