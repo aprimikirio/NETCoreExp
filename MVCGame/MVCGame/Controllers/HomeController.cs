@@ -19,9 +19,5 @@ namespace MVCGame.Controllers
         {
             return View();
         }
-        public IActionResult Game()
-        {
-            return View(db.Games.ToList());
-        }
     }
 }

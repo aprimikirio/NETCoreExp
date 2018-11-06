@@ -15,9 +15,13 @@ namespace MVCGame.Controllers
         {
             db = context;
         }
-        public IActionResult Index()
+        public IActionResult Game()
         {
             return View(db.Games.ToList());
+        }
+        public String Play(int RoomID)
+        {
+            return RoomID.ToString();
         }
     }
 }
