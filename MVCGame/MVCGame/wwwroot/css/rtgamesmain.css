@@ -5,6 +5,7 @@
     text-align: center;
     background-color: #ff1744;
     color: white;
+    margin: 0;
     font-size: 24pt;
 }
 #main {
@@ -20,15 +21,15 @@
 #content {
     min-height: 640px;
     font-size: 18px;
-	margin: 10px;
     background-color: white;
+    padding: 18px;
 }
 
 body {
     background-color: #ff80ab;
 }
 
-h1 {
+h1, h2, h3 {
 	text-align: center;
     margin: 0;
 }
@@ -40,7 +41,7 @@ img {
     margin: 15px;
 }
 
-a:link, a:visited {
+.menuLink:link, .menuLink:visited {
     color: white;
     padding: 10px 25px;
     text-align: center;
@@ -48,6 +49,6 @@ a:link, a:visited {
     display: inline-block;
 }
 
-a:hover, a:active {
+.menuLink:hover, .menuLink:active {
     background-color: #41403f;
 }
