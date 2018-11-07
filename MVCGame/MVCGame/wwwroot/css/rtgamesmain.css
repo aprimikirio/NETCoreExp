@@ -24,6 +24,9 @@
     background-color: white;
     padding: 18px;
 }
+#mainCanvas{
+    background-color: gray;
+}
 
 body {
     background-color: #ff80ab;
@@ -51,4 +54,7 @@ img {
 
 .menuLink:hover, .menuLink:active {
     background-color: #41403f;
+}
+.canvas {
+    text-align: center;
 }
