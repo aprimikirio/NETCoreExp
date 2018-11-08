@@ -10,13 +10,33 @@
 </p>
 
 <script>
+
+    class Square {
+        constructor(x, y, edge) {
+            this.x = x;
+            this.y = y;
+            this.edge = edge;
+        }
+    }
+
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     var x = canvas.width / 2;
     var y = canvas.height - 30;
     var dx = 2;
     var dy = -2;
+    var squares = new Array();
+    
+</script>
 
+@foreach (Square sq in ViewBag.Squares)
+{
+<script>
+        squares.push(new Square(@sq.X, @sq.Y, @sq.Edge));
+</script>
+}
+
+<script>
     function drawBall() {
         ctx.beginPath();
         ctx.arc(x, y, 10, 0, Math.PI * 2);
@@ -30,14 +50,12 @@
         drawBall();
         x += dx;
         y += dy;
+        squares.forEach(function (item, i, squares) {
+            ctx.strokeRect(item.x, item.y, item.edge, item.edge);
+        });
     }
 
     setInterval(draw, 10);
 </script>
 
-@foreach (Square sq in ViewBag.Squares)
-{
-<script>
-    ctx.strokeRect(@sq.X, @sq.Y, @sq.Edge, @sq.Edge);
-</script>
-}
+
