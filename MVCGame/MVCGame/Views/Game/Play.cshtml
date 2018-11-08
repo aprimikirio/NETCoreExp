@@ -8,6 +8,8 @@
         width: 640px;
         height: 480px;
         margin: auto;
+        border-style: solid;
+        border-width: 1px;
     }
 </style>
 
@@ -20,6 +22,15 @@
 </div>
 
 <script>
+
+    class Square {
+        constructor(x, y, edge) {
+            this.x = x;
+            this.y = y;
+            this.edge = edge;
+        }
+    }
+
     var stage = new Konva.Stage({
         container: 'container',
         width: 640,
@@ -29,28 +40,40 @@
     var height = window.innerHeight;
 
     var layer = new Konva.Layer();
-    var rectX = stage.getWidth() / 2 - 50;
-    var rectY = stage.getHeight() / 2 - 25;
+    var squares = new Array();
+</script>
 
-    var box = new Konva.Rect({
-        x: rectX,
-        y: rectY,
-        width: 100,
-        height: 50,
-        fill: '#00D2FF',
-        stroke: 'black',
-        strokeWidth: 4,
-        draggable: true
-    });
+@foreach (Square sq in ViewBag.Squares)
+{
+    <script>
+        squares.push(new Square(@sq.X, @sq.Y, @sq.Edge));
+    </script>
+}
 
-    // add cursor styling
-    box.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-    });
-    box.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-    });
+<script>
 
-    layer.add(box);
-    stage.add(layer);
+    squares.forEach(function (item, i, squares)
+    {
+        var box = new Konva.Rect({
+            x: item.x,
+            y: item.y,
+            width: item.edge,
+            height: item.edge,
+            fill: '#00D2FF',
+            stroke: 'black',
+            strokeWidth: 4,
+            draggable: true
+        });
+
+        // add cursor styling
+        box.on('mouseover', function () {
+            document.body.style.cursor = 'pointer';
+        });
+        box.on('mouseout', function () {
+            document.body.style.cursor = 'default';
+        });
+
+        layer.add(box);
+        stage.add(layer);
+    });
 </script>
