@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<MVCGame.Models.Game>
-@{
-    ViewData["Title"] = "GAME ROOMS";
-}
+@model List<MVCGame.Models.Square>
 
 <style>
     #container {
@@ -52,8 +50,7 @@
 
 <script>
 
-    squares.forEach(function (item, i, squares)
-    {
+    squares.forEach(function (item, i, squares) {
         var box = new Konva.Rect({
             x: item.x,
             y: item.y,

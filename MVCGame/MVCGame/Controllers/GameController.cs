@@ -19,11 +19,21 @@ namespace MVCGame.Controllers
         {
             return View(db.Games.ToList());
         }
+        [HttpGet]
         public IActionResult Play(int RoomID)
         {
+            //var allbooks = db.Books.ToList<Book>();var allSquares = db.Squares.Where(c => c.GameId == RoomID);
             ViewData["RoomID"] = RoomID;
-            ViewBag.Squares = db.Squares.Where(c => c.GameId == RoomID);
-            return View("Play");
+            var allSquares = db.Squares.Where(c => c.GameId == RoomID).ToList<Square>();
+            return View(allSquares);
+        }
+        [HttpGet]
+        public void Save(List<Square> squares)
+        {
+            foreach(Square sq in squares)
+                db.Squares.Add(sq);
+            // сохраняем в бд все изменения
+            db.SaveChanges();
         }
     }
 }
