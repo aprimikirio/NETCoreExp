@@ -28,7 +28,7 @@ namespace MVCGame.Controllers
             return View(allSquares);
         }
         [HttpPost]
-        public void Play(List<Square> squares)
+        public string Play(List<Square> squares)
         {
             for (int i = 0; i < squares.Count; i++)
             {
@@ -44,6 +44,7 @@ namespace MVCGame.Controllers
                 );
             }
             db.SaveChanges();
+            return "ok";
         }
     }
 }
