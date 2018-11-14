@@ -27,25 +27,6 @@ namespace MVCGame.Controllers
             var allSquares = db.Squares.Where(c => c.GameId == RoomID).ToList<Square>();
             return View(allSquares);
         }
-        [HttpPost]
-        public string Play(List<Square> squares)
-        {
-            for (int i = 0; i < squares.Count; i++)
-            {
-                db.Squares.Update(
-                    new Square
-                    {
-                        Id = squares[i].Id,
-                        GameId = squares[i].GameId,
-                        Edge = squares[i].Edge,
-                        X = squares[i].X,
-                        Y = squares[i].Y
-                    }
-                );
-            }
-            db.SaveChanges();
-            return "ok";
-        }
         [HttpGet]
         public IActionResult Edit(int RoomID)
         {
