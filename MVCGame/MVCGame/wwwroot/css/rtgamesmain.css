@@ -18,13 +18,7 @@
     text-align: center;
     background-color: #212120;
 }
-#content {
-    min-height: 640px;
-    font-size: 18px;
-    background-color: white;
-    padding: 18px;
-}
-#mainCanvas{
+#container {
     background-color: gray;
 }
 
@@ -63,4 +57,10 @@ img {
 }
 .canvas {
     text-align: center;
+}
+#content {
+    min-height: 640px;
+    font-size: 18px;
+    background-color: white;
+    padding: 18px;
 }
