@@ -25,6 +25,8 @@ namespace MVCGame.Controllers
             //var allbooks = db.Books.ToList<Book>();var allSquares = db.Squares.Where(c => c.GameId == RoomID);
             ViewData["RoomID"] = RoomID;
             var allSquares = db.Squares.Where(c => c.GameId == RoomID).ToList<Square>();
+            var thisGame = db.Games.Where(c => c.Id == RoomID).ToList<Game>();
+            ViewData["GameName"] = thisGame.First().Name;
             return View(allSquares);
         }
         [HttpGet]
