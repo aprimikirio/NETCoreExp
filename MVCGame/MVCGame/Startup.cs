@@ -28,6 +28,7 @@ namespace MVCGame
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<GameContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<PublicationContext>(options => options.UseSqlServer(connection));
             services.AddMvc();
         }
 

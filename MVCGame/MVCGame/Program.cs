@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using MVCGame.Models;
 
 namespace MVCGame
@@ -25,8 +24,10 @@ namespace MVCGame
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<GameContext>();
-                    SampleData.Initialize(context);
+                    var gamecontext = services.GetRequiredService<GameContext>();
+                    SampleData.Initialize(gamecontext);
+                    var pbcontext = services.GetRequiredService<PublicationContext>();
+                    SampleData.Initialize(pbcontext);
                 }
                 catch (Exception ex)
                 {

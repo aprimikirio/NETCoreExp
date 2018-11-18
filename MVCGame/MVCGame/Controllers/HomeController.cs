@@ -10,14 +10,16 @@ namespace MVCGame.Controllers
 {
     public class HomeController : Controller
     {
-        GameContext db;
-        public HomeController(GameContext context)
+        PublicationContext db;
+        public HomeController(PublicationContext context)
         {
             db = context;
         }
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var allpublications = db.Publications.ToList();
+            return View(allpublications);
         }
         public IActionResult About()
         {

@@ -35,5 +35,22 @@ namespace MVCGame.Models
                 context.SaveChanges();
             }
         }
+        public static void Initialize(PublicationContext context)
+        {
+            if (!context.Publications.Any())
+            {
+                context.Publications.AddRange(
+                    new Publication
+                    {
+                        Id = 0,
+                        Title = "Test",
+                        Text = "Text",
+                        ImageName = "test.png"
+                    }
+                );
+                context.SaveChanges();
+            }
+        }
+
     }
 }
