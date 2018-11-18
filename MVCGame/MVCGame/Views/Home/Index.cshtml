@@ -3,17 +3,9 @@
     ViewData["Title"] = "PUBLICATIONS";
 }
 
-<h3>Publications</h3>
-<table>
-    <tr>
-        <td>ID</td>
-        <td>TITLE</td>
-    </tr>
-    @foreach (var publication in Model)
-    {
-        <tr>
-            <td>@publication.Id</td>
-            <td>@publication.Title</td>
-        </tr>
-    }
-</table>
+@foreach (var publication in Model)
+{
+    <img src="~/images/Publication/@publication.ImageName" alt="@publication.Title Image"/>
+    <h3>@publication.Title</h3>
+    <p>@publication.Text</p>
+}
