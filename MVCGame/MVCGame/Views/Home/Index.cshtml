@@ -5,7 +5,18 @@
 
 @foreach (var publication in Model)
 {
-    <img src="~/images/Publication/@publication.ImageName" alt="@publication.Title Image"/>
-    <h3>@publication.Title</h3>
-    <p>@publication.Text</p>
+    <div class="publication" id="Pub_@publication.Id">
+        <img id="Img_@publication.Id" src="~/images/Publication/@publication.ImageName" alt="@publication.Title Image" />
+        <h3>@publication.Title</h3>
+        <p>@publication.Text</p>
+    </div>
+
+    <script>
+    var img = document.getElementById('Img_@publication.Id');
+
+    var width = img.clientWidth;
+    var height = img.clientHeight;
+
+    document.getElementById("Pub_@publication.Id").style.minHeight = height + 50 +"px"; // height
+    </script>
 }
