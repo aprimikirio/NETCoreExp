@@ -25,5 +25,13 @@ namespace MVCGame.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult PublicationSearch(int id)
+        {
+            var allpubs = db.Publications.Where(a => a.Id ==id).ToList();
+            
+            return PartialView(allpubs);
+        }
     }
 }
