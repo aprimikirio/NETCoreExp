@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/rtgamesmain.css" /> 
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 
 <body>
@@ -21,8 +22,7 @@
 
         <div id="content">
             @RenderBody()
-            @RenderSection("scripts", required: false)
         </div>
-    </div>>
+    </div>
 </body>
 </html>
