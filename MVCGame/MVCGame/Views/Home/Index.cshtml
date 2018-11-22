@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
     <h2>Список публикаций</h2>
@@ -120,10 +119,10 @@
         }
         // создание строки для таблицы
         var row = function (Publication) {
-            return "<tr data-rowid='" + Publication.Id + "'><td>" + Publication.Id + "</td>" +
-                "<td>" + Publication.Title + "</td> <td>" + Publication.Text + "</td> <td>" + Publication.ImageName + "</td>" +
-                "<td><a class='editLink' data-id='" + Publication.Id + "'>Изменить</a> | " +
-                "<a class='removeLink' data-id='" + Publication.Id + "'>Удалить</a></td></tr>";
+            return "<tr data-rowid='" + Publication.id + "'><td>" + Publication.id + "</td>" +
+                "<td>" + Publication.title + "</td> <td>" + Publication.text + "</td> <td>" + Publication.imageName + "</td>" +
+                "<td><a class='editLink' data-id='" + Publication.id + "'>Изменить</a> | " +
+                "<a class='removeLink' data-id='" + Publication.id + "'>Удалить</a></td></tr>";
         }
         // сброс значений формы
         $("#reset").click(function (e) {
