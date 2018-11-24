@@ -48,6 +48,10 @@ img {
     margin: 15px;
 }
 
+.roomsTable{
+    margin: 0px auto;
+}
+
 .menuLink:link, .menuLink:visited {
     color: white;
     padding: 10px 25px;
