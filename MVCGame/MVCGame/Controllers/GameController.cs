@@ -1,59 +1,83 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVCGame.Models;
 
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
 namespace MVCGame.Controllers
 {
+    [Route("api/[controller]")]
     public class GameController : Controller
     {
         GameContext db;
         public GameController(GameContext context)
         {
-            db = context;
+            this.db = context;
         }
-        public IActionResult Game()
-        {
-            return View(db.Games.ToList());
-        }
+        // GET: api/<controller>
         [HttpGet]
-        public IActionResult Play(int RoomID)
+        public IEnumerable<Game> Get()
         {
-            //var allbooks = db.Books.ToList<Book>();var allSquares = db.Squares.Where(c => c.GameId == RoomID);
-            ViewData["RoomID"] = RoomID;
-            var allSquares = db.Squares.Where(c => c.GameId == RoomID).ToList<Square>();
-            var thisGame = db.Games.Where(c => c.Id == RoomID).ToList<Game>();
-            ViewData["GameName"] = thisGame.First().Name;
-            return View(allSquares);
+            return db.Games.ToList();
         }
-        [HttpGet]
-        public IActionResult Edit(int RoomID)
+
+        // GET api/<controller>/5
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            //var allbooks = db.Books.ToList<Book>();var allSquares = db.Squares.Where(c => c.GameId == RoomID);
-            ViewData["RoomID"] = RoomID;
-            var allSquares = db.Squares.Where(c => c.GameId == RoomID).ToList<Square>();
-            return View(allSquares);
+            Game game = db.Games.FirstOrDefault(x => x.Id == id);
+            if (game == null)
+                return NotFound();
+            return new ObjectResult(game);
         }
+
+        // POST api/<controller>
         [HttpPost]
-        public void Edit(List<Square> squares)
+        public IActionResult Post([FromBody]Game game)
         {
-            for (int i = 0; i < squares.Count; i++)
+            if (game == null)
             {
-                db.Squares.Update(
-                    new Square
-                    {
-                        Id = squares[i].Id,
-                        GameId = squares[i].GameId,
-                        Edge = squares[i].Edge,
-                        X = squares[i].X,
-                        Y = squares[i].Y
-                    }
-                );
+                return BadRequest();
             }
+
+            db.Games.Add(game);
             db.SaveChanges();
+            return Ok(game);
+        }
+
+        // PUT api/<controller>/5
+        [HttpPut]
+        public IActionResult Put([FromBody]Game game)
+        {
+            if (game == null)
+            {
+                return BadRequest();
+            }
+            if (!db.Games.Any(x => x.Id == game.Id))
+            {
+                return NotFound();
+            }
+
+            db.Update(game);
+            db.SaveChanges();
+            return Ok(game);
+        }
+
+        // DELETE api/<controller>/5
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            Game game = db.Games.FirstOrDefault(x => x.Id == id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+            db.Games.Remove(game);
+            db.SaveChanges();
+            return Ok(game);
         }
     }
 }
