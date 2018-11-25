@@ -16,8 +16,8 @@
     <tr>
         <td>@game.Id</td>
         <td>@game.Name</td>
-        <td><a asp-area="" asp-controller="Game" asp-action="Play" asp-route-RoomID="@game.Id">JOIN</a></td>
-        <td><a asp-area="" asp-controller="Game" asp-action="Edit" asp-route-RoomID="@game.Id">EDIT</a></td>
+        <td><a asp-area="" asp-controller="GameRooms" asp-action="Play" asp-route-RoomID="@game.Id">JOIN</a></td>
+        <td><a asp-area="" asp-controller="GameRooms" asp-action="Edit" asp-route-RoomID="@game.Id">EDIT</a></td>
     </tr>
     }
 </table>

@@ -13,13 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Game\Edit.cshtml">
+    <Content Update="Views\GameRooms\Edit.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Game\Play.cshtml">
+    <Content Update="Views\GameRooms\Play.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Game\Game.cshtml">
+    <Content Update="Views\GameRooms\Game.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>
