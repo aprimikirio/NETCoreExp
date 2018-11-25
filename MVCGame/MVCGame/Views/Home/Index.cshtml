@@ -3,11 +3,11 @@
     ViewData["Title"] = "PUBLICATIONS";
 }
 
-<div class="publicationsbody"/>
+<div class="publicationsbody" id="publicationsbody"/>
 
 
 <script>
-    // Получение всех пользователей
+    // Получение всех 
     function GetPublications() {
         $.ajax({
             url: '/api/Publications',
@@ -16,10 +16,37 @@
             success: function (Publications) {
                 var rows = "";
                 $.each(Publications, function (index, Publication) {
-                    // добавляем полученные элементы в таблицу
-                    rows += row(Publication);
+
+                    var div = document.createElement('div');
+                    div.id = "publication" + Publication.id;
+                    div.className = "publication";
+
+                    var img = document.createElement('img');
+                    img.src = "/images/Publication/" + Publication.imageName;
+                    img.id = "img" + Publication.id;
+
+                    div.appendChild(img);
+                    
+                    var height = img.naturalHeight;
+
+                    div.style.minHeight = height + 50 + "px";
+
+                    var h3 = document.createElement('h3');
+                    h3.innerHTML = Publication.title;
+                    h3.id = "title" + Publication.id;
+
+                    div.appendChild(h3);
+
+                    var p = document.createElement('p');
+                    p.innerHTML = Publication.text;
+                    p.id = "text" + Publication.id;
+
+                    div.appendChild(p);
+
+                    var src = document.getElementById("publicationsbody");
+                    src.appendChild(div);
                 })
-                $(".publicationsbody").append(rows);
+                //$(".publicationsbody").append(rows);
             }
         });
     }
@@ -33,16 +60,16 @@
             {
                 $.each(Publications, function (index, Publication) {
                     // добавляем полученные элементы в таблицу
-                    var img = document.getElementById('Img_' + Publication.id);
+                    var img = document.getElementById('img' + Publication.id);
                     var width = img.clientWidth;
                     var height = img.clientHeight;
-                    document.getElementById("Pub_" + Publication.id).style.minHeight = height + 50 + "px";
+                    document.getElementById("publication" + Publication.id).style.minHeight = height + 50 + "px";
                 })
             }
         });
     }
 
-    // Получение одного пользователя
+    // Получение 1
     function GetPublication(Id) {
         $.ajax({
             url: '/api/Publications/' + Id,
@@ -57,7 +84,7 @@
             }
         });
     }
-    // Добавление пользователя
+    // Добавление 
     function CreatePublication(PublicationTitle, PublicationText, PublicationImageName) {
         $.ajax({
             url: "api/Publications",
@@ -74,7 +101,7 @@
             }
         })
     }
-    // Изменение пользователя
+    // Изменение 
     function EditPublication(PublicationId, PublicationTitle, PublicationText, PublicationImageName) {
         $.ajax({
             url: "api/Publications",
@@ -100,7 +127,7 @@
         form.elements["Id"].value = 0;
     }
 
-    // Удаление пользователя
+    // Удаление 
     function DeletePublication(Id) {
         $.ajax({
             url: "api/Publications/" + Id,
@@ -148,7 +175,7 @@
         DeletePublication(Id);
     })
 
-    // загрузка пользователей
+    // загрузка 
     GetPublications();
     SetPublicationsHeights();
 
