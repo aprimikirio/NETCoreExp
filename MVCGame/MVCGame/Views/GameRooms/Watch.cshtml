@@ -24,11 +24,7 @@
 
     var canvas = document.getElementById("mainCanvas"),
         context = canvas.getContext("2d");
-
-    var dx = 2;
-    var dy = 2;
-    var resx = 0, resy = 0;
-
+    
     // Получение всех
     function GetSquares() {
         $.ajax({
@@ -40,20 +36,11 @@
                 $.each(Squares, function (index, Square) {
                     context.clearRect(0, 0, 640, 480);
                     context.strokeRect(Square.x, Square.y, Square.edge, Square.edge);
-                    resx = Square.x; resy = Square.y;
-                    
-                    if (Square.x + dx > canvas.width - Square.edge || Square.x + dx < 0) {
-                        dx = -dx;
-                    }
-                    if (Square.y + dy > canvas.height - Square.edge || Square.y + dy < 0) {
-                        dy = -dy;
-                    }
-
                 })
                 //$(".publicationsbody").append(rows);
             }
         });
-        console.log("getty" + resx + " " + resy);
+        console.log("getty");
     }
 
     // Изменение
@@ -77,14 +64,13 @@
     function draw()
     {
         GetSquares();
-        EditSquare(1, 1, 100, resx + dx, resy + dy);
     }
 
     // загрузка
     //GetSquares();
     setInterval(draw, 10);
     //EditSquare(1, 1, 100, 100, 100);
-    
+
 </script>
 
 
