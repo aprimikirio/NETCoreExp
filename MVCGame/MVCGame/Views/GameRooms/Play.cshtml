@@ -14,19 +14,18 @@
 <div>
     <h3>WELCOME TO "@ViewData["GameName"]" ROOM</h3>
     <div id="container">
+        <canvas id="mainCanvas" width="640" height="480">
+            Canvas
+        </canvas>
     </div>
 </div>
 
 <script>
 
-    var stage = new Konva.Stage({
-        container: 'container',
-        width: 640,
-        height: 480
-    });
-    var layer = new Konva.Layer();
+    var canvas = document.getElementById("mainCanvas"),
+        context = canvas.getContext("2d");
 
-    var sqx = 0, sqy = 0;
+    var resx = 0, resy = 0;
 
     // Получение всех
     function GetSquares() {
@@ -35,33 +34,15 @@
             type: 'GET',
             contentType: "application/json",
             success: function (Squares) {
-                $.each(Squares, function (index, Square)
-                {
-                    var box = new Konva.Rect({
-                        x: Square.x,
-                        y: Square.y,
-                        width: Square.edge,
-                        height: Square.edge,
-                        fill: '#00D2FF',
-                        stroke: 'black',
-                        strokeWidth: 4,
-                        draggable: true
-                });
-
-                box.on('mouseover', function ()
-                {
-                    document.body.style.cursor = 'pointer';
-                });
-
-                    layer.add(box);
-                    stage.add(layer);
-
-                    sqx = Square.x;
-                    sqy = Square.y;
+                $.each(Squares, function (index, Square) {
+                    context.clearRect(0, 0, 640, 480);
+                    context.strokeRect(Square.x, Square.y, Square.edge, Square.edge);
+                    resx = Square.x; resy = Square.y;
                 })
                 //$(".publicationsbody").append(rows);
             }
         });
+        console.log("getty" + resx + " " + resy);
     }
 
     // Изменение
@@ -81,9 +62,17 @@
         console.log("putty");
     }
 
+    function draw()
+    {
+        GetSquares();
+        EditSquare(1, 1, 100, resx + 1, resy + 1);
+    }
+
     // загрузка
-    GetSquares();
-    EditSquare(1, 1, 100, sqx , sqy);
+    //GetSquares();
+    setInterval(draw, 10);
+    //EditSquare(1, 1, 100, 10, 10);
+    
 </script>
 
 
