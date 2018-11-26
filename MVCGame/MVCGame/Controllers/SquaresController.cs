@@ -7,13 +7,13 @@ using MVCGame.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace MVCSquare.Controllers
+namespace MVCGame.Controllers
 {
     [Route("api/[controller]")]
-    public class SquareController : Controller
+    public class SquaresController : Controller
     {
         GameContext db;
-        public SquareController(GameContext context)
+        public SquaresController(GameContext context)
         {
             this.db = context;
         }

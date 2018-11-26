@@ -14,48 +14,77 @@
 <div>
     <h3>WELCOME TO "@ViewData["GameName"]" ROOM</h3>
     <div id="container">
-        <canvas id="myCanvas" width="480" height="640"></canvas>
     </div>
 </div>
 
 <script>
+
     var stage = new Konva.Stage({
         container: 'container',
         width: 640,
         height: 480
     });
     var layer = new Konva.Layer();
-</script>
 
-<form con="/Game/Play" method="post">
-    @using (Html.BeginForm())
-    {
-        for (int i = 0; i < Model.Count(); i++)
-        {
-    <script>
-                var box = new Konva.Rect({
-                    x: @Model[i].X,
-                    y: @Model[i].Y,
-                    width: @Model[i].Edge,
-                    height: @Model[i].Edge,
-                    fill: '#00D2FF',
-                    stroke: 'black',
-                    strokeWidth: 4,
-                    draggable: true
+    var sqx = 0, sqy = 0;
+
+    // Получение всех
+    function GetSquares() {
+        $.ajax({
+            url: '/api/Squares',
+            type: 'GET',
+            contentType: "application/json",
+            success: function (Squares) {
+                $.each(Squares, function (index, Square)
+                {
+                    var box = new Konva.Rect({
+                        x: Square.x,
+                        y: Square.y,
+                        width: Square.edge,
+                        height: Square.edge,
+                        fill: '#00D2FF',
+                        stroke: 'black',
+                        strokeWidth: 4,
+                        draggable: true
                 });
 
-                box.on('mouseover', function () 
+                box.on('mouseover', function ()
                 {
                     document.body.style.cursor = 'pointer';
                 });
 
-                layer.add(box);
-                stage.add(layer);
-    </script>
-        }
-        //<input type="submit" />
+                    layer.add(box);
+                    stage.add(layer);
+
+                    sqx = Square.x;
+                    sqy = Square.y;
+                })
+                //$(".publicationsbody").append(rows);
+            }
+        });
     }
-</form>
+
+    // Изменение
+    function EditSquare(squareId, squareGameId, squareEdge, squareX, squareY) {
+        $.ajax({
+            url: "../api/Squares",
+            contentType: "application/json",
+            method: "PUT",
+            data: JSON.stringify({
+                id: squareId,
+                gameId: squareGameId,
+                edge: squareEdge,
+                x: squareX,
+                y: squareY
+            })
+        })
+        console.log("putty");
+    }
+
+    // загрузка
+    GetSquares();
+    EditSquare(1, 1, 100, sqx , sqy);
+</script>
 
 
 
