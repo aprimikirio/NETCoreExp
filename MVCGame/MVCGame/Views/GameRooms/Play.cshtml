@@ -77,13 +77,17 @@
     function draw()
     {
         GetSquares();
-        EditSquare(1, 1, 100, resx + dx, resy + dy);
+        //EditSquare(1, 1, 100, resx + dx, resy + dy);
     }
 
+    function moveRect(e) {
+        EditSquare(1, 1, 100, resx + dx, resy + dy)
+    }
     // загрузка
     //GetSquares();
     setInterval(draw, 10);
     //EditSquare(1, 1, 100, 100, 100);
+    addEventListener("keydown", moveRect);
     
 </script>
 
