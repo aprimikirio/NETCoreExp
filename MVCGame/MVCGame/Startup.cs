@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using MVCGame.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 namespace MVCGame
 {
     public class Startup
@@ -29,6 +31,14 @@ namespace MVCGame
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<GameContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<PublicationContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => //CookieAuthenticationOptions
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
+
+            services.AddMvc();
             services.AddMvc();
         }
 
@@ -44,7 +54,10 @@ namespace MVCGame
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
