@@ -23,7 +23,7 @@ namespace MVCGame.Controllers
         [HttpGet]
         public IEnumerable<Publication> Get()
         {
-            return db.Publications.ToList();
+            return db.Publications.OrderByDescending(x => x.Id).ToList();
         }
 
         // GET api/<controller>/5
