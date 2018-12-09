@@ -12,7 +12,7 @@ namespace MVCGame.Models.ViewModels
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Пароль введен неверно")]
+        [Compare("Password", ErrorMessage = "Invalid password")]
         public string ConfirmPassword { get; set; }
     }
 }
