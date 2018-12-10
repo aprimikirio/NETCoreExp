@@ -32,13 +32,13 @@ namespace MVCGame
             services.AddDbContext<GameContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<PublicationContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
 
-            services.AddMvc();
             services.AddMvc();
         }
 
