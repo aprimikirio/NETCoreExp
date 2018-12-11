@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVCGame.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCGame.Controllers
 {
@@ -15,6 +16,7 @@ namespace MVCGame.Controllers
         {
             db = context;
         }
+        [Authorize]
         public IActionResult Game()
         {
             return View(db.Games.ToList());

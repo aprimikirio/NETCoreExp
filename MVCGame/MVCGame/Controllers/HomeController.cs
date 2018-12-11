@@ -18,9 +18,9 @@ namespace MVCGame.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return Content(User.Identity.Name);
-            //var allpublications = db.Publications.ToList();
-            //return View(allpublications);
+            //return Content(User.Identity.Name);
+            var allpublications = db.Publications.ToList();
+            return View(allpublications);
         }
         public IActionResult About()
         {
