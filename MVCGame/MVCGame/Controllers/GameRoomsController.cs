@@ -16,12 +16,13 @@ namespace MVCGame.Controllers
         {
             db = context;
         }
-        [Authorize]
+        
         public IActionResult Game()
         {
             return View(db.Games.ToList());
         }
         [HttpGet]
+        [Authorize]
         public IActionResult Play(int RoomID)
         {
             //var allbooks = db.Books.ToList<Book>();var allSquares = db.Squares.Where(c => c.GameId == RoomID);

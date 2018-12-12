@@ -9,6 +9,7 @@
     font-size: 24pt;
 }
 #main {
+    display: flex;
     margin: auto;
     min-width: 800px;
     max-width: 1000px;
@@ -19,7 +20,15 @@
     background-color: #212121;
 }
 #container {
+    float: left;
     background-color: gray;
+    width: 640px;
+    height: 200px;
+}
+
+#chat {
+    float: right;
+    background-color: aquamarine;
 }
 
 .canvass{
