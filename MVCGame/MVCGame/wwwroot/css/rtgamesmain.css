@@ -8,32 +8,32 @@
     margin: 0;
     font-size: 24pt;
 }
+
 #main {
-    display: flex;
     margin: auto;
     min-width: 800px;
     max-width: 1000px;
 }
+
 #menu {
     font-size: 13px;
     text-align: center;
     background-color: #212121;
 }
+
 #container {
-    float: left;
     background-color: gray;
-    width: 640px;
-    height: 200px;
+    display: inline-block;
 }
 
 #chat {
-    float: right;
     background-color: aquamarine;
+    display: inline-block;
 }
 
-.canvass{
-    border:2px solid #000000;
-	text-align: center;
+.canvass {
+    border: 2px solid #000000;
+    text-align: center;
 }
 
 .publication {
@@ -46,7 +46,7 @@ body {
 }
 
 h1, h2, h3 {
-	text-align: center;
+    text-align: center;
     margin: 0;
 }
 
@@ -57,7 +57,7 @@ img {
     margin: 15px;
 }
 
-.roomsTable{
+.roomsTable {
     margin: 0px auto;
 }
 
@@ -72,9 +72,11 @@ img {
 .menuLink:hover, .menuLink:active {
     background-color: #41403f;
 }
+
 .canvas {
     text-align: center;
 }
+
 #content {
     min-height: 640px;
     font-size: 18px;
